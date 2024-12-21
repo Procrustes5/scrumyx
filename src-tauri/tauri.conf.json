@@ -13,14 +13,20 @@
     "windows": [
       {
         "title": "scrumyx",
-        "width": 800,
-        "height": 600,
-        "decorations": false
+        "width": 320,
+        "height": 240,
+        "decorations": false,
+        "transparent": true,
+        "shadow": false,
+        "fullscreen": false,
+        "resizable": false,
+        "maximizable": false
       }
     ],
     "security": {
       "csp": null
-    }
+    },
+    "macOSPrivateApi": true
   },
   "bundle": {
     "active": true,
