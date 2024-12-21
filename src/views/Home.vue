@@ -2,8 +2,24 @@
 import { ref } from 'vue'
 import { useReminderStore } from '../store/reminder'
 import { Clock, CheckCircle2 } from 'lucide-vue-next'
+import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/plugin-notification'
+//
+// let permissionGranted = await isPermissionGranted();
+// if (!permissionGranted) {
+//   const permission = await requestPermission();
+//   permissionGranted = permission === 'granted';
+// }
+// if (permissionGranted) {
+//   sendNotification('Tauri is awesome!');
+//   sendNotification({ title: 'TAURI', body: 'Tauri is awesome!' });
+// }
 
 const store = useReminderStore()
+
+const handleClick = () => {
+  console.log(1)
+  sendNotification('hello')
+}
 </script>
 
 <template>
@@ -17,6 +33,7 @@ const store = useReminderStore()
         </button>
       </div>
     </div>
+    <div @click="handleClick()" class="w-6 h-6 bg-violet-500"></div>
 
     <!-- Reminders List -->
     <div class="space-y-2 mb-4">
@@ -32,7 +49,8 @@ const store = useReminderStore()
               reminder.priority === 'high' ? 'bg-rose-500' :
               reminder.priority === 'medium' ? 'bg-amber-500' :
               'bg-emerald-500'
-            ]" />
+            ]"
+            />
             <p class="font-medium truncate">{{ reminder.title }}</p>
           </div>
           <p class="text-xs text-zinc-400 mt-0.5">
