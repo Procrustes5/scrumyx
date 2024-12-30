@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
 import Sidebar from './components/Sidebar.vue'
+import { useNotification } from './composables/useNotification.ts'
+
+useNotification();
 </script>
 
 <template>
-  <div class="flex h-60 w-80 bg-transparent">
+  <div class="flex h-70 w-90 bg-transparent">
     <Sidebar />
   </div>
 </template>
